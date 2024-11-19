@@ -1,0 +1,48 @@
+Last login: Sun Nov 17 16:29:43 2024 from ip-10-37-33-205.ec2.internal
+   ,     #_
+   ~\_  ####_        Amazon Linux 2
+  ~~  \_#####\
+  ~~     \###|       AL2 End of Life is 2025-06-30.
+  ~~       \#/ ___
+   ~~       V~' '->
+    ~~~         /    A newer version of Amazon Linux is available!
+      ~~._.   _/
+         _/ _/       Amazon Linux 2023, GA and supported until 2028-03-15.
+       _/m/'           https://aws.amazon.com/linux/amazon-linux-2023/
+
+[jiz393@ip-10-37-33-207 ~]$ ls
+136689  am207_project  ondemand
+[jiz393@ip-10-37-33-207 ~]$ cd am207_project/
+[jiz393@ip-10-37-33-207 am207_project]$ ls
+cnn.py  rs.py
+[jiz393@ip-10-37-33-207 am207_project]$ python --version
+Python 2.7.18
+[jiz393@ip-10-37-33-207 am207_project]$ git clone --depth=100 --branch=releases/v0.21 https://github.com/spack/spack.git ~/spack
+Cloning into '/shared/home/jiz393/spack'...
+remote: Enumerating objects: 20049, done.
+remote: Counting objects: 100% (20049/20049), done.
+remote: Compressing objects: 100% (10938/10938), done.
+Receiving objects: 100% (20049/20049), 13.41 MiB | 21.13 MiB/s, done.
+remote: Total 20049 (delta 2242), reused 13791 (delta 1753), pack-reused 0 (from 0)
+Resolving deltas: 100% (2242/2242), done.
+Updating files: 100% (11012/11012), done.
+[jiz393@ip-10-37-33-207 am207_project]$ . ~/spack/share/spack/setup-env.sh
+
+[jiz393@ip-10-37-33-207 ~]$ . ~/spack/share/spack/setup-env.sh
+[jiz393@ip-10-37-33-207 ~]$ cd am207_project/
+[jiz393@ip-10-37-33-207 am207_project]$ spack env create am207_project
+==> Created environment 'am207_project' in /shared/home/jiz393/spack/var/spack/environments/am207_project
+==> You can activate this environment with:
+==>   spack env activate am207_project
+[jiz393@ip-10-37-33-207 am207_project]$ spack env activate am207_project
+[jiz393@ip-10-37-33-207 am207_project]$ spack find
+==> In environment am207_project
+==> No root specs
+==> 0 installed packages
+[jiz393@ip-10-37-33-207 am207_project]$ spack add python@3.10.12
+==> Adding python@3.10.12 to environment am207_project
+[jiz393@ip-10-37-33-207 am207_project]$ spack install
+
+
+
+
