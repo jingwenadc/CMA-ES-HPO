@@ -49,7 +49,7 @@ class CNN(nn.Module):
 
 # Early stopping criteria
 class EarlyStopping:
-    def __init__(self, patience=5, delta=0, path='checkpoint.pt'):
+    def __init__(self, patience=4, delta=0, path='checkpoint.pt'):
         self.patience = patience
         self.delta = delta
         self.best_loss = None
@@ -88,7 +88,7 @@ def objective_function(params):
     num_neurons = int(round(params[3]))
 
     # Build and train model
-    model = CNN(num_layers=num_layers, num_neurons=num_neurons, dropout=dropout).cuda()
+    model = CNN(num_layers=num_layers, num_neurons=num_neurons, dropout=dropout)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
@@ -99,7 +99,7 @@ def objective_function(params):
         model.train()
         running_loss = 0.0
         for inputs, labels in train_loader:
-            inputs, labels = inputs.cuda(), labels.cuda()
+            inputs, labels = inputs, labels
             optimizer.zero_grad()
             outputs = model(inputs)
             loss = criterion(outputs, labels)
@@ -113,7 +113,7 @@ def objective_function(params):
         total = 0
         with torch.no_grad():
             for inputs, labels in val_loader:  # Assuming you have a validation set
-                inputs, labels = inputs.cuda(), labels.cuda()
+                inputs, labels = inputs, labels
                 outputs = model(inputs)
                 _, predicted = torch.max(outputs, 1)
                 total += labels.size(0)
@@ -132,7 +132,7 @@ def objective_function(params):
     total = 0
     with torch.no_grad():
         for inputs, labels in test_loader:
-            inputs, labels = inputs.cuda(), labels.cuda()
+            inputs, labels = inputs, labels
             outputs = model(inputs)
             _, predicted = torch.max(outputs, 1)
             total += labels.size(0)
