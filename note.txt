@@ -51,7 +51,24 @@ pip 24.3.1 from /shared/home/jiz393/spack/opt/spack/linux-amzn2-skylake_avx512/g
 [jiz393@ip-10-37-33-207 am207_project]$ alias pip="python -m pip"
 [jiz393@ip-10-37-33-207 am207_project]$ pip --version
 pip 24.3.1 from /shared/home/jiz393/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/python-3.10.12-vhep4drbrs2ey2dedwc5fods3iawiuzj/lib/python3.10/site-packages/pip (python 3.10)
-
-
+[jiz393@ip-10-37-33-207 CMA-ES-HPO]$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 273 bytes | 3.00 KiB/s, done.
+From https://github.com/jingwenadc/CMA-ES-HPO
+   ac226c1..c18359b  main       -> origin/main
+Updating ac226c1..c18359b
+Fast-forward
+ requirements.txt | 11 +++--------
+ 1 file changed, 3 insertions(+), 8 deletions(-)
+[jiz393@ip-10-37-33-207 CMA-ES-HPO]$ pip install -r requirements.txt
+[jiz393@ip-10-37-33-207 CMA-ES-HPO]$ python rs.py 
+========================= Running Random Search on CNN =========================
+Timestamp: 20241119_000440
+Number of evaluations: 1 
+Example parameter sets: [(np.float64(0.09861545659226828), np.float64(0.1573893167965288), np.float64(2.6957290679213033), np.float64(351.2858160206
+891))]
 
 
