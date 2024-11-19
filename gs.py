@@ -52,10 +52,10 @@ if __name__ == "__main__":
     print(f"Time taken by CNN + grid search: {elapsed_time:.2f} seconds == {elapsed_time/3600:.2f} hours")
 
     # Save variables to a file
-    filename = f"results_{job_timestamp}.pkl"
-    with open(filename, 'wb') as f:
-        pickle.dump(results, f)
-        pickle.dump(best_params, f)
-        pickle.dump(best_accuracy, f)
+    # filename = f"results_{job_timestamp}.pkl"
+    # with open(filename, 'wb') as f:
+    #     pickle.dump(results, f)
+    #     pickle.dump(best_params, f)
+    #     pickle.dump(best_accuracy, f)
 
     print("################## Complete Grid Search on CNN ##################")
