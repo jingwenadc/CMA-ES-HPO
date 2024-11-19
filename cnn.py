@@ -74,7 +74,7 @@ class EarlyStopping:
         torch.save(model.state_dict(), self.path)
 
 # Objective Function
-def objective_function(params):
+def objective_function(params, train_loader, val_loader, test_loader):
     """
     Objective function for CMA-ES:
     params[0]: learning rate

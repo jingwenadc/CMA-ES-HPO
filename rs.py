@@ -4,7 +4,7 @@ import itertools
 import time
 import pickle
 from datetime import datetime
-from cnn_cpu import objective_function, CNN_NUM_RUNS, CNN_LR, CNN_DROPOUT, CNN_LAYERS, CNN_NEURONS
+from cnn_cpu import objective_function, data_loader, CNN_NUM_RUNS, CNN_LR, CNN_DROPOUT, CNN_LAYERS, CNN_NEURONS
 
 
 # python my_script.py >> output.txt
@@ -15,7 +15,7 @@ def random_search(param_combinations, objective_function):
   best_accuracy = 0
   for param in param_combinations:
     # print(param)
-    res = -objective_function(param)
+    res = -objective_function(param, train_loader, val_loader, test_loader)
     
     if res > best_accuracy:
       best_accuracy = res
@@ -41,6 +41,9 @@ if __name__ == "__main__":
     n_neurons_list_CNN_RS = np.random.uniform(CNN_NEURONS[0], CNN_NEURONS[1], num_points)
     param_combinations_CNN_RS = list(itertools.product(learning_rates_list_CNN_RS, n_dropout_list_CNN_RS, n_layers_list_CNN_RS, n_neurons_list_CNN_RS))
     print(f'Number of evaluations: {len(param_combinations_CNN_RS)} \nExample parameter sets: {param_combinations_CNN_RS[:5]}')
+
+
+    train_loader, val_loader, test_loader = data_loader()
 
     start_time_CNN_RS = time.time()
     results_CNN_RS, best_params_CNN_RS, best_accuracy_CNN_RS = random_search(param_combinations_CNN_RS, objective_function)
