@@ -37,8 +37,8 @@ if __name__ == "__main__":
     # Generate the points
     learning_rates_list_CNN_RS = np.random.uniform(CNN_LR[0], CNN_LR[1], num_points)
     n_dropout_list_CNN_RS = np.random.uniform(CNN_DROPOUT[0], CNN_DROPOUT[1], num_points)
-    n_layers_list_CNN_RS = np.random.uniform(CNN_LAYERS[0], CNN_LAYERS[1], num_points)
-    n_neurons_list_CNN_RS = np.random.uniform(CNN_NEURONS[0], CNN_NEURONS[1], num_points)
+    n_layers_list_CNN_RS = np.random.randint(CNN_LAYERS[0], CNN_LAYERS[1], num_points)
+    n_neurons_list_CNN_RS = np.random.randint(CNN_NEURONS[0], CNN_NEURONS[1], num_points)
     param_combinations_CNN_RS = list(itertools.product(learning_rates_list_CNN_RS, n_dropout_list_CNN_RS, n_layers_list_CNN_RS, n_neurons_list_CNN_RS))
     print(f'Number of evaluations: {len(param_combinations_CNN_RS)} \nExample parameter sets: {param_combinations_CNN_RS[:5]}')
 
