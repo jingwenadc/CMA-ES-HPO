@@ -4,7 +4,7 @@ import itertools
 import time
 import pickle
 from datetime import datetime
-from cnn import objective_function, CNN_NUM_RUNS, CNN_LR, CNN_DROPOUT, CNN_LAYERS, CNN_NEURONS
+from cnn_cpu import objective_function, CNN_NUM_RUNS, CNN_LR, CNN_DROPOUT, CNN_LAYERS, CNN_NEURONS
 
 
 # python my_script.py >> output.txt
