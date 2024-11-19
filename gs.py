@@ -4,7 +4,7 @@ import itertools
 import time
 import pickle
 from datetime import datetime
-from cnn_cpu import objective_function, data_loader, CNN_NUM_RUNS, CNN_LR, CNN_DROPOUT, CNN_LAYERS, CNN_NEURONS
+from cnn_cpu import objective_function, data_loader, CNN_MAX_EVALS, CNN_LR, CNN_DROPOUT, CNN_LAYERS, CNN_NEURONS
 
 
 def grid_search(param_combinations, objective_function):
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     job_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     print(f'Timestamp: {job_timestamp}')
     # Parameters
-    num_points = math.floor(CNN_NUM_RUNS**(1/4)) # Number of random points
+    num_points = math.floor(CNN_MAX_EVALS**(1/4)) # Number of random points
 
     # Generate the points
     learning_rates_list = np.linspace(CNN_LR[0], CNN_LR[1], num_points)
@@ -45,17 +45,17 @@ if __name__ == "__main__":
     train_loader, val_loader, test_loader = data_loader()
 
     start_time = time.time()
-    # results, best_params, best_accuracy = grid_search(param_combinations, objective_function)
+    results, best_params, best_accuracy = grid_search(param_combinations, objective_function)
     end_time = time.time()
 
     elapsed_time = end_time - start_time
     print(f"Time taken by CNN + grid search: {elapsed_time:.2f} seconds == {elapsed_time/3600:.2f} hours")
 
     # Save variables to a file
-    # filename = f"results_{job_timestamp}.pkl"
-    # with open(filename, 'wb') as f:
-    #     pickle.dump(results, f)
-    #     pickle.dump(best_params, f)
-    #     pickle.dump(best_accuracy, f)
+    filename = f"results_gs_{job_timestamp}.pkl"
+    with open(filename, 'wb') as f:
+        pickle.dump(results, f)
+        pickle.dump(best_params, f)
+        pickle.dump(best_accuracy, f)
 
     print("################## Complete Grid Search on CNN ##################")

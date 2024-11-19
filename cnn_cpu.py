@@ -13,7 +13,7 @@ CNN_LR = [0.0001, 0.1]
 CNN_DROPOUT = [0.0, 0.5]
 CNN_LAYERS = [1, 5]
 CNN_NEURONS = [8, 512]
-CNN_NUM_RUNS = 16
+CNN_MAX_EVALS = 16
 
 
 class CNN(nn.Module):
