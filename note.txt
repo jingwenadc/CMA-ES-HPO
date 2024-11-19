@@ -42,6 +42,15 @@ Updating files: 100% (11012/11012), done.
 [jiz393@ip-10-37-33-207 am207_project]$ spack add python@3.10.12
 ==> Adding python@3.10.12 to environment am207_project
 [jiz393@ip-10-37-33-207 am207_project]$ spack install
+[jiz393@ip-10-37-33-207 am207_project]$ spack load python@3.10.12
+[jiz393@ip-10-37-33-207 am207_project]$ python --version
+Python 3.10.12
+[jiz393@ip-10-37-33-207 am207_project]$ python -m ensurepip --upgrade
+[jiz393@ip-10-37-33-207 am207_project]$ python -m pip --version
+pip 24.3.1 from /shared/home/jiz393/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/python-3.10.12-vhep4drbrs2ey2dedwc5fods3iawiuzj/lib/python3.10/site-packages/pip (python 3.10)
+[jiz393@ip-10-37-33-207 am207_project]$ alias pip="python -m pip"
+[jiz393@ip-10-37-33-207 am207_project]$ pip --version
+pip 24.3.1 from /shared/home/jiz393/spack/opt/spack/linux-amzn2-skylake_avx512/gcc-7.3.1/python-3.10.12-vhep4drbrs2ey2dedwc5fods3iawiuzj/lib/python3.10/site-packages/pip (python 3.10)
 
 
 
