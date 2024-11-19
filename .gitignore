@@ -1,3 +1,4 @@
 *.pickle
 *.txt
 !note.txt
+!requirements.txt
