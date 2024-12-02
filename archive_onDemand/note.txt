@@ -3,6 +3,8 @@
 [jiz393@ip-10-37-33-207 CMA-ES-HPO]$ spack load python@3.10.12
 [jiz393@ip-10-37-33-207 CMA-ES-HPO]$ python rs.py >> output_rs.txt
 [jiz393@ip-10-37-33-207 CMA-ES-HPO]$ python gs.py >> output_gs.txt
+[jiz393@ip-10-37-33-207 CMA-ES-HPO]$ python main.py >> main.txt
+
 
 
 
